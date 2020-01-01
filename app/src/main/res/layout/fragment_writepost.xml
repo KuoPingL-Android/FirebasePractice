@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="students.jimmy.firebasepractice.addpostfragment.AddPostViewModel" />
+        <import type="students.jimmy.firebasepractice.addpostfragment.Status"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/edittext_post_title"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="@id/button_writepost"
+            app:layout_constraintEnd_toEndOf="@id/button_writepost"
+            android:layout_marginTop="20dp"
+            android:text="@={viewModel.title}"
+            android:hint="@string/hint_post_title"
+            />
+
+        <EditText
+            android:id="@+id/edittext_post_content"
+            android:hint="@string/hint_post_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="@id/button_writepost"
+            app:layout_constraintEnd_toEndOf="@id/button_writepost"
+            app:layout_constraintBottom_toTopOf="@id/spinner_writepost"
+            app:layout_constraintTop_toBottomOf="@id/edittext_post_title"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:text="@={viewModel.content}"
+            android:maxLines="20"
+            android:scrollbars="vertical"
+            android:gravity="top|left"
+            />
+
+        <Spinner
+            android:id="@+id/spinner_writepost"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            app:layout_constraintBottom_toTopOf="@id/button_writepost"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintStart_toStartOf="@id/button_writepost"
+            app:layout_constraintEnd_toEndOf="@id/button_writepost"
+            />
+
+        <Button
+            android:id="@+id/button_writepost"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:text="@string/post_message_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@color/color"
+            android:textColor="#fff"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintWidth_percent="0.7"
+            android:enabled="@{viewModel.content == null || viewModel.content.empty || viewModel.title == null || viewModel.title.empty || viewModel.tag == null || viewModel.status == Status.Loading ? false:true}"
+            android:onClick="@{()->viewModel.addPost()}"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

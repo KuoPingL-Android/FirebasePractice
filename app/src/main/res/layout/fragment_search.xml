@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="students.jimmy.firebasepractice.searchfragment.SearchViewModel" />
+        <import type="android.view.View"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/edittext_search_useremail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintWidth_percent="0.7"
+            android:hint="@string/hint_search_user_email"
+            android:text="@={viewmodel.email}"
+            />
+
+        <Button
+            android:id="@+id/button_search"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/button_search"
+            app:layout_constraintTop_toBottomOf="@id/edittext_search_useremail"
+            app:layout_constraintStart_toStartOf="@id/edittext_search_useremail"
+            app:layout_constraintEnd_toEndOf="@id/edittext_search_useremail"
+            android:layout_marginTop="20dp"
+            android:onClick="@{()->viewmodel.searchUser(viewmodel.email)}"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/button_search"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="@id/edittext_search_useremail"
+            app:layout_constraintEnd_toEndOf="@id/edittext_search_useremail"
+            android:text='@{"Name : " + viewmodel.user.user_name + "\n" + "ID : " + viewmodel.user.user_id}'
+            android:visibility="@{viewmodel.user == null ? View.GONE : View.VISIBLE}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

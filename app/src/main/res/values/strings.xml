@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">FirebasePractice</string>
+    <string name="fb_main_collection">firebase_practice</string>
+    <string name="fb_user_collection">users</string>
+    <string name="fb_post_collection">articles</string>
+
+    <!--TAGS-->
+    <string name="tags_beauty">Beauty</string>
+    <string name="tags_gossiping">Gossiping</string>
+    <string name="tags_joke">Joke</string>
+    <string name="tags_schoollife">SchoolLife</string>
+    <string name="login_text">登入</string>
+    <string name="register_text">註冊</string>
+    <string name="hint_user_name">請輸入使用者名稱</string>
+    <string name="hint_password">請輸入密碼</string>
+    <string name="hint_login_error">輸入名稱或密碼有誤</string>
+    <string name="hint_email">請輸入 email</string>
+    <string name="hint_search_user_email">請輸入使用者電子信箱</string>
+    <string name="button_search">Search</string>
+    <string name="post_message_button">SEND</string>
+    <string name="hint_post_content">請輸入文章</string>
+    <string name="hint_post_title">標題</string>
+
+    <string-array name="tags">
+        <item>@string/tags_joke</item>
+        <item>@string/tags_beauty</item>
+        <item>@string/tags_gossiping</item>
+        <item>@string/tags_schoollife</item>
+    </string-array>
+
+</resources>

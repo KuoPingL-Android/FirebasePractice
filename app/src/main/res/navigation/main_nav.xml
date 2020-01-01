@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/main_nav"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="students.jimmy.firebasepractice.loginscene.LoginFragment"
+        android:label="LoginFragment" >
+    </fragment>
+    <action
+        android:id="@+id/action_global_loginFragment"
+        app:destination="@id/loginFragment"
+        app:popUpToInclusive="true"
+        app:popUpTo="@id/main_nav"/>
+    <fragment
+        android:id="@+id/readPostFragment"
+        android:name="students.jimmy.firebasepractice.readpostfragment.ReadPostFragment"
+        android:label="ReadPostFragment" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="students.jimmy.firebasepractice.searchfragment.SearchFragment"
+        android:label="SearchFragment" />
+    <fragment
+        android:id="@+id/addPostFragment"
+        android:name="students.jimmy.firebasepractice.addpostfragment.AddPostFragment"
+        android:label="AddPostFragment" />
+    <action
+        android:id="@+id/action_global_addPostFragment"
+        app:destination="@id/addPostFragment"
+        app:popUpTo="@id/main_nav"
+        app:popUpToInclusive="true"/>
+    <action
+        android:id="@+id/action_global_searchFragment"
+        app:destination="@id/searchFragment"
+        app:popUpTo="@id/main_nav"
+        app:popUpToInclusive="true"/>
+    <action
+        android:id="@+id/action_global_readPostFragment"
+        app:destination="@id/readPostFragment"
+        app:popUpTo="@id/main_nav"
+        app:popUpToInclusive="true"/>
+</navigation>
